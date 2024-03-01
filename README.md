@@ -12,18 +12,11 @@ python -m pip install --upgrade "biobabel @ git+https://github.com/florisvanvugt
 ```
 
 
-Install locally:
-
-```
-pip install .
-```
-
-and editable:
+Or clone the git and then install locally (editable flag `-e` is optional):
 
 ```
 pip install -e .
 ```
-
 
 
 

@@ -60,8 +60,10 @@ def split_windows(
     fun
 ):
 
-    """ Split the data up into windows, and for each window,
-    apply the function """
+    """ 
+    Split the data up into windows, and for each window,
+    apply a given function (usually to extract features such as HRV) 
+    """
     
     wins = make_windows(min_t,max_t,win_size,step_size)
 
@@ -71,3 +73,45 @@ def split_windows(
         res.append(r)
 
     return pd.DataFrame(res)
+
+
+
+
+import scipy.stats
+
+
+
+def correlations(pA,pB,metrics,idxs=None):
+
+    """ 
+    Given a set of windowed values for participant pA and a set of values for participant pB,
+    calculate the coupling between columns indicated in metrics.
+    """
+    
+    
+    corrs = []
+    for idx in metrics:
+        corr = {'quantity':idx}
+        x = pA[idx]
+        y = pB[idx]
+        try:
+            res = scipy.stats.linregress(x,y)
+            corr['pearson.r']=res.rvalue
+            corr['pearson.p']=res.pvalue
+
+            res = scipy.stats.spearmanr(x, y)
+            corr['spearman.r']=res.correlation
+            corr['spearman.p']=res.pvalue
+
+            res = scipy.stats.kendalltau(x, y)
+            corr['kendall.tau']=res.correlation
+            corr['kendall.p']  =res.pvalue
+
+        except:
+            corr['pearson.r']=np.nan
+            corr['pearson.p']=np.nan
+            
+        corrs.append(corr)
+    corrs = pd.DataFrame(corrs)
+    
+    return corrs

@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
   "pandas",
   "hrvanalysis"
+  "numpy","scipy"
 ]
 
 [project.urls]
