@@ -17,7 +17,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-  "pandas"
+  "pandas",
+  "hrvanalysis"
 ]
 
 [project.urls]
