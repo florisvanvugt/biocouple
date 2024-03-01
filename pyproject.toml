@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "biocouple"
+version = "0.5"
+authors = [
+  { name="Floris van Vugt", email="ftvanvugt@gmail.com" },
+]
+description = "Coupling in biosignals"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pandas"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/florisvanvugt/biocouple"
+
+
+# To upload a package to PyPI:
+# Sitting in the package root directory
+#   python3 -m build
+# creates dist/... stuff
+# Uploading
+#   python3 -m twine upload dist/*
+
+
