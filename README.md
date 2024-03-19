@@ -8,7 +8,7 @@
 Install latest development version from Github:
 
 ```
-python -m pip install --upgrade "biobabel @ git+https://github.com/florisvanvugt/biobabel"
+python -m pip install --upgrade "biocouple @ git+https://github.com/florisvanvugt/biocouple"
 ```
 
 
